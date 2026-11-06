@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InfraTicket | Central de Tickets</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span>■</span> InfraTicket</div>
+  <nav>
+    <button class="nav-btn active" data-page="usuario">Área do Usuário</button>
+    <button class="nav-btn" data-page="admin">Painel do Administrador</button>
+  </nav>
+</header>
+
+<main>
+<section id="usuario" class="page active">
+  <div class="section-title">
+    <span class="badge">ÁREA DO USUÁRIO</span>
+    <h1>Abra seu chamado para a Infraestrutura</h1>
+    <p>Descreva o problema. O InfraTicket fará a triagem automática e encaminhará o chamado para a equipe responsável.</p>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step active"><b>1</b><span>Abrir chamado</span></div>
+    <div class="arrow">→</div>
+    <div class="flow-step"><b>2</b><span>Análise automática</span></div>
+    <div class="arrow">→</div>
+    <div class="flow-step"><b>3</b><span>Direcionamento</span></div>
+    <div class="arrow">→</div>
+    <div class="flow-step"><b>4</b><span>Atendimento</span></div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-head">
+        <div><span class="number">01</span><h2>Novo chamado</h2></div>
+        <span class="status ready">Pronto</span>
+      </div>
+
+      <form id="ticketForm">
+        <label>Nome do solicitante</label>
+        <input id="nome" placeholder="Ex.: Lucas Silva">
+
+        <label>E-mail</label>
+        <input id="email" type="email" placeholder="Ex.: lucas@email.com">
+
+        <label>Título do problema</label>
+        <input id="titulo" placeholder="Ex.: Notebook não liga">
+
+        <label>Descreva o problema</label>
+        <textarea id="descricao" rows="7" placeholder="Explique o que aconteceu, qual equipamento está com problema e se existe alguma urgência."></textarea>
+
+        <div class="tip">💡 Quanto mais detalhes forem informados, melhor será a triagem automática.</div>
+        <button class="primary" type="submit">Enviar chamado →</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Como o chamado será tratado?</h2>
+      <div class="process">
+        <div><b>01</b><p><strong>Recebimento</strong><br>O sistema registra o chamado.</p></div>
+        <div><b>02</b><p><strong>Triagem</strong><br>Palavras-chave são analisadas.</p></div>
+        <div><b>03</b><p><strong>Classificação</strong><br>Categoria e prioridade são definidas.</p></div>
+        <div><b>04</b><p><strong>Infraestrutura</strong><br>O administrador recebe o ticket.</p></div>
+      </div>
+      <div class="categories">
+        <span>Hardware</span><span>Rede</span><span>Periféricos</span><span>Acesso</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="userResult" class="card result hidden"></div>
+</section>
+
+<section id="admin" class="page">
+  <div class="section-title admin-title">
+    <span class="badge">ADMINISTRADOR</span>
+    <h1>Painel de Infraestrutura</h1>
+    <p>Central para receber, visualizar, priorizar e atualizar os chamados.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><small>Total</small><strong id="total">0</strong></div>
+    <div class="stat"><small>Abertos</small><strong id="abertos">0</strong></div>
+    <div class="stat"><small>Em atendimento</small><strong id="atendimento">0</strong></div>
+    <div class="stat"><small>Resolvidos</small><strong id="resolvidos">0</strong></div>
+  </div>
+
+  <div class="admin-layout">
+    <div>
+      <div class="toolbar">
+        <div class="filters">
+          <button class="filter active" data-filter="Todos">Todos</button>
+          <button class="filter" data-filter="Aberto">Abertos</button>
+          <button class="filter" data-filter="Em atendimento">Em atendimento</button>
+          <button class="filter" data-filter="Resolvido">Resolvidos</button>
+        </div>
+        <button class="secondary" id="clearHistory">Limpar tickets</button>
+      </div>
+      <div id="adminList"></div>
+    </div>
+
+    <div id="adminDetails" class="card details">
+      <div class="empty">
+        <div class="empty-icon">⌁</div>
+        <h2>Selecione um ticket</h2>
+        <p>Os detalhes do chamado aparecerão aqui para o administrador.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>InfraTicket • Protótipo acadêmico • HTML + CSS + JavaScript</footer>
+<script src="script.js"></script>
+</body>
+</html>
